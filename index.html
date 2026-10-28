@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colegio Montano - Interactive Digital Board: Grammar Unit 1 (Our World 3)</title>
+    <!-- Tailwind CSS for modern responsive styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #F2F5E9; /* Blanco Suave */
+            color: #2D3748;
+            margin: 0;
+            padding: 10px;
+        }
+        /* Custom scrollbar and animations */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #88B5C7;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col items-center justify-center p-2 sm:p-4">
+
+    <!-- Pizarra Digital Container -->
+    <div id="pizarra-container" class="w-full max-w-6xl bg-white rounded-xl shadow-2xl border-4 border-[#F7D615] overflow-hidden flex flex-col transition-all duration-300">
+        
+        <!-- Header con Identidad Visual -->
+        <header class="bg-[#1269A8] text-white p-4 flex flex-col sm:flex-row items-center justify-between gap-4 border-b-4 border-[#F7D615]">
+            <div class="flex items-center gap-3">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyEop0yf6lZ7Jk9MILZxF1rBj4Oqs5esyhIQ&s" alt="Colegio Montano Logo" class="w-12 h-12 rounded-full border-2 border-[#F7D615] object-cover bg-white shadow-md" onerror="this.src='https://placehold.co/50x50/1269A8/FFFFFF?text=CM'">
+                <div>
+                    <h1 class="text-xl sm:text-2xl font-bold tracking-wide">Colegio Montano</h1>
+                    <p class="text-xs sm:text-sm text-[#88B5C7] font-semibold">Interactive Digital Board — 3rd Grade | Our World 3 (Unit 1)</p>
+                </div>
+            </div>
+            
+            <!-- Fullscreen Toggle Button -->
+            <button onclick="toggleFullScreen()" class="bg-[#F7D615] text-[#1269A8] font-bold px-4 py-2 rounded-lg shadow hover:bg-yellow-400 transition transform hover:scale-105 flex items-center gap-2 text-sm sm:text-base">
+                <span>⛶</span> Full Screen
+            </button>
+        </header>
+
+        <!-- Navigation Tabs -->
+        <nav class="bg-[#54887D] flex flex-wrap justify-center sm:justify-start gap-1 p-2 border-b-2 border-[#A6B046]">
+            <button onclick="switchTab('theory')" class="tab-btn px-4 py-2 rounded-md font-semibold text-white bg-[#1269A8] shadow transition-all text-sm sm:text-base">Theory & Concepts</button>
+            <button onclick="switchTab('examples')" class="tab-btn px-4 py-2 rounded-md font-semibold text-white bg-opacity-70 hover:bg-opacity-100 transition-all text-sm sm:text-base">Resolved Examples (15)</button>
+            <button onclick="switchTab('exercises')" class="tab-btn px-4 py-2 rounded-md font-semibold text-white bg-opacity-70 hover:bg-opacity-100 transition-all text-sm sm:text-base">Practice Exercises (15)</button>
+            <button onclick="switchTab('reflection')" class="tab-btn px-4 py-2 rounded-md font-semibold text-white bg-opacity-70 hover:bg-opacity-100 transition-all text-sm sm:text-base">Critical Reflection</button>
+            <button onclick="switchTab('evaluation')" class="tab-btn px-4 py-2 rounded-md font-semibold text-white bg-opacity-70 hover:bg-opacity-100 transition-all text-sm sm:text-base">Formative Quiz</button>
+        </nav>
+
+        <!-- Main Content Canvas Area -->
+        <main class="p-4 sm:p-8 bg-[#F2F5E9] overflow-y-auto max-h-[75vh]">
+            
+            <!-- TAB 1: THEORY -->
+            <section id="tab-theory" class="tab-content space-y-6">
+                <div class="bg-white p-6 rounded-xl border-l-8 border-[#1269A8] shadow-md">
+                    <span class="inline-block bg-[#A6B046] text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-2">Grammar 1</span>
+                    <h2 class="text-2xl font-bold text-[#1269A8] mb-3">Before and After in Daily Routines</h2>
+                    <p class="text-gray-700 leading-relaxed mb-4">
+                        We use <strong>before</strong> and <strong>after</strong> to talk about the order of daily actions and routines. 
+                        We can ask questions using <em>"What do you do...?"</em> or <em>"What does he/she do...?"</em> followed by <em>before</em> or <em>after</em> an activity (like school, breakfast, or lunch).
+                    </p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                        <div class="bg-[#88B5C7] bg-opacity-20 p-4 rounded-lg border border-[#88B5C7]">
+                            <h3 class="font-bold text-[#1269A8] text-lg mb-2">Structure for Questions</h3>
+                            <ul class="list-disc list-inside space-y-1 text-sm text-gray-700">
+                                <li><strong>What</strong> + do/does + subject + do + <strong>before / after</strong> + noun?</li>
+                                <li><em>Example:</em> What do <strong>you</strong> do <strong>before</strong> school?</li>
+                                <li><em>Example:</em> What <strong>does she</strong> do <strong>after</strong> breakfast?</li>
+                            </ul>
+                        </div>
+                        <div class="bg-[#88B5C7] bg-opacity-20 p-4 rounded-lg border border-[#88B5C7]">
+                            <h3 class="font-bold text-[#1269A8] text-lg mb-2">Structure for Answers</h3>
+                            <ul class="list-disc list-inside space-y-1 text-sm text-gray-700">
+                                <li>Subject + verb (present simple) + object.</li>
+                                <li><em>Example:</em> I brush my teeth.</li>
+                                <li><em>Example:</em> She feeds her fish. / He helps his mother.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl border-l-8 border-[#54887D] shadow-md">
+                    <span class="inline-block bg-[#A6B046] text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-2">Grammar 2</span>
+                    <h2 class="text-2xl font-bold text-[#54887D] mb-3">Adverbs of Frequency</h2>
+                    <p class="text-gray-700 leading-relaxed mb-4">
+                        Adverbs of frequency tell us <strong>how often</strong> something happens. In Unit 1, we focus on four key levels of frequency placed right before the main action verb:
+                    </p>
+                    
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
+                        <div class="bg-green-50 p-4 rounded-lg border border-[#A6B046]">
+                            <span class="block font-bold text-[#1269A8] text-lg">always</span>
+                            <span class="text-xs text-gray-600">100% of the time (Every single day)</span>
+                        </div>
+                        <div class="bg-blue-50 p-4 rounded-lg border border-[#88B5C7]">
+                            <span class="block font-bold text-[#1269A8] text-lg">usually</span>
+                            <span class="text-xs text-gray-600">80% of the time (Most days)</span>
+                        </div>
+                        <div class="bg-yellow-50 p-4 rounded-lg border border-[#F7D615]">
+                            <span class="block font-bold text-[#1269A8] text-lg">sometimes</span>
+                            <span class="text-xs text-gray-600">50% of the time (Occasionally)</span>
+                        </div>
+                        <div class="bg-red-50 p-4 rounded-lg border border-red-200">
+                            <span class="block font-bold text-[#1269A8] text-lg">never</span>
+                            <span class="text-xs text-gray-600">0% of the time (Not at all)</span>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-600 mt-4 italic">Note on third-person singular (He/She): Remember to add an 's' or 'es' to the verb (e.g., "He <em>always gets up</em> early", "She <em>never makes</em> her bed late").</p>
+                </div>
+            </section>
+
+            <!-- TAB 2: RESOLVED EXAMPLES (15 Total: 5 Basic, 5 Intermediate, 5 Advanced) -->
+            <section id="tab-examples" class="tab-content hidden space-y-6">
+                <h2 class="text-2xl font-bold text-[#1269A8] border-b-2 border-[#88B5C7] pb-2">Resolved Examples (Step-by-Step)</h2>
+                
+                <!-- LEVEL: BASIC -->
+                <div class="space-y-4">
+                    <h3 class="text-xl font-bold text-[#54887D] flex items-center gap-2">
+                        <span class="bg-[#54887D] text-white text-xs px-2.5 py-1 rounded">Basic Level</span> Before & After / Simple Frequency
+                    </h3>
+                    
+                    <!-- Example 1 -->
+                    <div class="bg-white p-4 rounded-lg shadow border border-[#88B5C7]">
+                        <p class="font-semibold text-gray-800">1. Unscramble the question: <span class="text-[#1269A8]">washes / his / face / He</span> (before school)</p>
+                        <button onclick="toggleSolution('ex1')" class="mt-2 text-xs bg-[#1269A8] text-white px-3 py-1 rounded hover:bg-blue-700 transition">Show Solution</button>
+                        <div id="ex1" class="hidden mt-3 p-3 bg-[#88B5C7] bg-opacity-20 rounded border border-[#88B5C7] text-sm text-gray-700">
+                            <strong>Step-by-step resolution:</strong><br>
+                            1. Identify the subject: <em>He</em><br>
+                            2. Identify the verb action: <em>washes his face</em><br>
+                            3. Combine with the time marker: <em>He washes his face before school.</em>
+                        </div>
+                    </div>
+
+                    <!-- Example 2 -->
+                    <div class="bg-white p-4 rounded-lg shadow border border-[#88B5C7]">
+                        <p class="font-semibold text-gray-800">2. Answer the question: What do you do before breakfast?</p>
+                        <button onclick="toggleSolution('ex2')" class="mt-2 text-xs bg-[#1269A8] text-white px-3 py-1 rounded hover:bg-blue-700 transition">Show Solution</button>
+                        <div id="ex2" class="hidden mt-3 p-3 bg-[#88B5C7] bg-opacity-20 rounded border border-[#88B5C7] text-sm text-gray-700">
+                            <strong>Step-by-step resolution:</strong><br>
+                            1. Think of a morning routine action done prior to eating.<br>
+                            2. Formulate sentence using 'I': <em>I brush my teeth before breakfast.</em>
+                        </div>
+                    </div>
+
+                    <!-- Example 3 -->
+                    <div class="bg-white p-4 rounded-lg shadow border border-[#88B5C7]">
+                        <p class="font-semibold text-gray-800">3. Complete with an adverb of frequency: I _____ eat breakfast at 7:00.</p>
+                        <button onclick="toggleSolution('ex3')" class="mt-2 text-xs bg-[#1269A8] text-white px-3 py-1 rounded hover:bg-blue-700 transition">Show Solution</button>
+                        <div id="ex3" class="hidden mt-3 p-3 bg-[#88B5C7] bg-opacity-20 rounded border border-[#88B5C7] text-sm text-gray-700">
+                            <strong>Step-by-step resolution:</strong><br>
+                            1. Select an appropriate adverb representing daily consistency.<br>
+                            2. Answer: <em>always</em> (I always eat breakfast at 7:00).
+                        </div>
+                    </div>
+
+                    <!-- Example 4 -->
+                    <div class="bg-white p-4 rounded-lg shadow border border-[#88B5C7]">
+                        <p class="font-semibold text-gray-800">4. Formulate a question using 'after school': What do you do...?</p>
+                        <button onclick="toggleSolution('ex4')" class="mt-2 text-xs bg-[#1269A8] text-white px-3 py-1 rounded hover:bg-blue-700 transition">Show Solution</button>
+                        <div id="ex4" class="hidden mt-3 p-3 bg-[#88B5C7] bg-opacity-20 rounded border border-[#88B5C7] text-sm text-gray-700">
+                            <strong>Step-by-step resolution:</strong><br>
+                            1. Structure: What + do + you + do + after school?<br>
+                            2. Result: <em>What do you do after school?</em>
+                        </div>
+                    </div>
+
+                    <!-- Example 5 -->
+                    <div class="bg-white p-4 rounded-lg shadow border border-[#88B5C7]">
+                        <p class="font-semibold text-gray-800">5. Order the sentence: She / helps / usually / at / home</p>
+                        <button onclick="toggleSolution('ex5')" class="mt-2 text-xs bg-[#1269A8] text-white px-3 py-1 rounded hover:bg-blue-700 transition">Show Solution</button>
+                        <div id="ex5" class="hidden mt-3 p-3 bg-[#88B5C7] bg-opacity-20 rounded border border-[#88B5C7] text-sm text-gray-700">
+                            <strong>Step-by-step resolution:</strong><br>
+                            1. Subject: She<br>
+                            2. Adverb of frequency (goes right before verb): usually<br>
+                            3. Verb phrase: helps at home<br>
+                            4. Result: <em>She usually helps at home.</em>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- LEVEL: INTERMEDIATE -->
+                <div class="space-y-4 pt-4">
+                    <h3 class="text-xl font-bold text-[#54887D] flex items-center gap-2">
+                        <span class="bg-[#1269A8] text-white text-xs px-2.5 py-1 rounded">Intermediate Level</span> Combined Routines & Third Person Singular
+                    </h3>
+                    
+                    <!-- Example 6 -->
+                    <div class="bg-white p-4 rounded-lg shadow border border-[#88B5C7]">
+                        <p class="font-semibold text-gray-800">6. Unscramble the question: does / after / What / do / he / school</p>
+                        <button onclick="toggleSolution('ex6')" class="mt-2 text-xs bg-[#1269A8] text-white px-3 py-1 rounded hover:bg-blue-700 transition">Show Solution</button>
+                        <div id="ex6" class="hidden mt-3 p-3 bg-[#88B5C7] bg-opacity-20 rounded border border-[#88B5C7] text-sm text-gray-700">
+                            <strong>Step-by-step resolution:</strong><br>
+                            1. Question word: What<br>
+                            2. Auxiliary: does + he + do<br>
+                            3. Time phrase: after school<br>
+                            4. Result: <em>What does he do after school?</em>
+                        </div>
+                    </div>
+
+                    <!-- Example 7 -->
+                    <div class="bg-white p-4 rounded-lg shadow border border-[#88B5C7]">
+                        <p class="font-semibold text-gray-800">7. Correct the grammar error: He never make his bed.</p>
+                        <button onclick="toggleSolution('ex7')" class="mt-2 text-xs bg-[#1269A8] text-white px-3 py-1 rounded hover:bg-blue-700 transition">Show Solution</button>
+                        <div id="ex7" class="hidden mt-3 p-3 bg-[#88B5C7] bg-opacity-20 rounded border border-[#88B5C7] text-sm text-gray-700">
+                            <strong>Step-by-step resolution:</strong><br>
+                            1. Identify subject pronoun: 'He' requires third-person singular verb ending (-s).<br>
+                            2. Correct verb: makes<br>
+                            3. Result: <em>He never makes his bed.</em>
+                        </div>
+                    </div>
+
+                    <!-- Example 8 -->
+                    <div class="bg-white p-4 rounded-lg shadow border border-[#88B5C7]">
+                        <p class="font-semibold text-gray-800">8. Complete the sentence based on schedule: She (80% frequency) has a snack at 3:45.</p>
+                        <button onclick="toggleSolution('ex8')" class="mt-2 text-xs bg-[#1269A8] text-white px-3 py-1 rounded hover:bg-blue-700 transition">Show Solution</button>
+                        <div id="ex8" class="hidden mt-3 p-3 bg-[#88B5C7] bg-opacity-20 rounded border border-[#88B5C7] text-sm text-gray-700">
+                            <strong>Step-by-step resolution:</strong><br>
+                            1. Match 80% with the corresponding adverb: usually.<br>
+                            2. Result: <em>She usually has a snack at 3:45.</em>
+                        </div>
+                    </div>
+
+                    <!-- Example 9 -->
+                    <div class="bg-white p-4 rounded-lg shadow border border-[#88B5C7]">
+                        <p class="font-semibold text-gray-800">9. Formulate an answer for: What does she do before school? (feeds / hamster / her)</p>
+                        <button onclick="toggleSolution('ex9')" class="mt-2 text-xs bg-[#1269A8] text-white px-3 py-1 rounded hover:bg-blue-700 transition">Show Solution</button>
+                        <div id="ex9" class="hidden mt-3 p-3 bg-[#88B5C7] bg-opacity-20 rounded border border-[#88B5C7] text-sm text-gray-700">
+                            <strong>Step-by-step resolution:</strong><br>
+                            1. Subject: She<br>
+                            2. Verb with third person 's': feeds<br>
+                            3. Object: her hamster<br>
+                            4. Result: <em>She feeds her hamster.</em>
+                        </div>
+                    </div>
+
+                    <!-- Example 10 -->
+                    <div class="bg-white p-4 rounded-lg shadow border border-[#88B5C7]">
+                        <p class="font-semibold text-gray-800">10. Create a sentence describing a partner's morning routine with 'sometimes'.</p>
+                        <button onclick="toggleSolution('ex10')" class="mt-2 text-xs bg-[#1269A8] text-white px-3 py-1 rounded hover:bg-blue-700 transition">Show Solution</button>
+                        <div id="ex10" class="hidden mt-3 p-3 bg-[#88B5C7] bg-opacity-20 rounded border border-[#88B5C7] text-sm text-gray-700">
+                            <strong>Step-by-step resolution:</strong><br>
+                            1. Choose partner pronoun: He or She.<br>
+                            2. Insert adverb: sometimes.<br>
+                            3. Result: <em>He sometimes takes a shower before breakfast.</em>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- LEVEL: ADVANCED -->
+                <div class="space-y-4 pt-4">
+                    <h3 class="text-xl font-bold text-[#54887D] flex items-center gap-2">
+                        <span class="bg-[#F7D615] text-[#1269A8] text-xs px-2.5 py-1 rounded font-bold">Advanced Level</span> Multi-clause Integration & Complex Time/Frequency mapping
+                    </h3>
+                    
+                    <!-- Example 11 -->
+                    <div class="bg-white p-4 rounded-lg shadow border border-[#88B5C7]">
+                        <p class="font-semibold text-gray-800">11. Combine before/after and frequency: Write about getting up early and eating breakfast.</p>
+                        <button onclick="toggleSolution('ex11')" class="mt-2 text-xs bg-[#1269A8] text-white px-3 py-1 rounded hover:bg-blue-700 transition">Show Solution</button>
+                        <div id="ex11" class="hidden mt-3 p-3 bg-[#88B5C7] bg-opacity-20 rounded border border-[#88B5C7] text-sm text-gray-700">
+                            <strong>Step-by-step resolution:</strong><br>
+                            1. Integrate adverb: I always get up early.<br>
+                            2. Integrate time sequence: I eat breakfast after getting up.<br>
+                            3. Result: <em>I always get up early and I eat breakfast after that.</em>
+                        </div>
+                    </div>
+
+                    <!-- Example 12 -->
+                    <div class="bg-white p-4 rounded-lg shadow border border-[#88B5C7]">
+                        <p class="font-semibold text-gray-800">12. Transform first-person to third-person statement: "I sometimes do my homework at 5:30." (for Sofia)</p>
+                        <button onclick="toggleSolution('ex12')" class="mt-2 text-xs bg-[#1269A8] text-white px-3 py-1 rounded hover:bg-blue-700 transition">Show Solution</button>
+                        <div id="ex12" class="hidden mt-3 p-3 bg-[#88B5C7] bg-opacity-20 rounded border border-[#88B5C7] text-sm text-gray-700">
+                            <strong>Step-by-step resolution:</strong><br>
+                            1. Change subject: Sofia (or She)<br>
+                            2. Keep adverb: sometimes<br>
+                            3. Conjugate verb with third person: does (do -> does)<br>
+                            4. Result: <em>Sofia sometimes does her homework at 5:30.</em>
+                        </div>
+                    </div>
+
+                    <!-- Example 13 -->
+                    <div class="bg-white p-4 rounded-lg shadow border border-[#88B5C7]">
+                        <p class="font-semibold text-gray-800">13. Formulate a complex routine paragraph: Mention two actions before school and one after school.</p>
+                        <button onclick="toggleSolution('ex13')" class="mt-2 text-xs bg-[#1269A8] text-white px-3 py-1 rounded hover:bg-blue-700 transition">Show Solution</button>
+                        <div id="ex13" class="hidden mt-3 p-3 bg-[#88B5C7] bg-opacity-20 rounded border border-[#88B5C7] text-sm text-gray-700">
+                            <strong>Step-by-step resolution:</strong><br>
+                            1. Before actions: I wash my face and brush my teeth before school.<br>
+                            2. After action: I help my mother after school.<br>
+                            3. Result: <em>I wash my face and brush my teeth before school. I help my mother after school.</em>
+                        </div>
+                    </div>
+
+                    <!-- Example 14 -->
+                    <div class="bg-white p-4 rounded-lg shadow border border-[#88B5C7]">
+                        <p class="font-semibold text-gray-800">14. Unscramble full dialogue question: breakfast / What / do / after / she / does</p>
+                        <button onclick="toggleSolution('ex14')" class="mt-2 text-xs bg-[#1269A8] text-white px-3 py-1 rounded hover:bg-blue-700 transition">Show Solution</button>
+                        <div id="ex14" class="hidden mt-3 p-3 bg-[#88B5C7] bg-opacity-20 rounded border border-[#88B5C7] text-sm text-gray-700">
+                            <strong>Step-by-step resolution:</strong><br>
+                            1. Question word: What<br>
+                            2. Auxiliary + Subject + Main verb: does she do<br>
+                            3. Time preposition + noun: after breakfast<br>
+                            4. Result: <em>What does she do after breakfast?</em>
+                        </div>
+                    </div>
+
+                    <!-- Example 15 -->
+                    <div class="bg-white p-4 rounded-lg shadow border border-[#88B5C7]">
+                        <p class="font-semibold text-gray-800">15. Analyze frequency schedule: "He (0%) comes home at 8:00." Formulate negative frequency sentence.</p>
+                        <button onclick="toggleSolution('ex15')" class="mt-2 text-xs bg-[#1269A8] text-white px-3 py-1 rounded hover:bg-blue-700 transition">Show Solution</button>
+                        <div id="ex15" class="hidden mt-3 p-3 bg-[#88B5C7] bg-opacity-20 rounded border border-[#88B5C7] text-sm text-gray-700">
+                            <strong>Step-by-step resolution:</strong><br>
+                            1. Identify 0% frequency: never.<br>
+                            2. Apply third person verb form: comes.<br>
+                            3. Result: <em>He never comes home at 8:00.</em>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB 3: PRACTICE EXERCISES (15 Total: 5 Basic, 5 Intermediate, 5 Advanced) -->
+            <section id="tab-exercises" class="tab-content hidden space-y-6">
+                <h2 class="text-2xl font-bold text-[#1269A8] border-b-2 border-[#88B5C7] pb-2">Practice Exercises (Interactive Board Tasks)</h2>
+                
+                <!-- BASIC EXERCISES -->
+                <div class="space-y-4">
+                    <h3 class="text-xl font-bold text-[#54887D]">Basic Practice</h3>
+                    
+                    <div class="bg-white p-4 rounded-lg shadow border border-[#88B5C7]">
+                        <p class="font-semibold text-gray-800">1. Unscramble and write: <span class="text-[#1269A8]">washes / his / face / He</span> (before school)</p>
+                        <input type="text" placeholder="Type your answer here..." class="mt-2 w-full p-2 border rounded border-gray-300 text-sm focus:outline-none focus:border-[#1269A8]">
+                        <button onclick="toggleSolution('p1')" class="mt-2 text-xs bg-[#54887D] text-white px-3 py-1 rounded hover:bg-teal-700 transition">Check Answer</button>
+                        <div id="p1" class="hidden mt-2 p-2 bg-green-50 text-green-800 text-sm rounded">Correct Answer: He washes his face before school.</div>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-lg shadow border border-[#88B5C7]">
+                        <p class="font-semibold text-gray-800">2. Match the activity: What do you do <span class="text-[#1269A8]">before breakfast</span>? -> I _____ my teeth.</p>
+                        <input type="text" placeholder="Type your answer here..." class="mt-2 w-full p-2 border rounded border-gray-300 text-sm focus:outline-none focus:border-[#1269A8]">
+                        <button onclick="toggleSolution('p2')" class="mt-2 text-xs bg-[#54887D] text-white px-3 py-1 rounded hover:bg-teal-700 transition">Check Answer</button>
+                        <div id="p2" class="hidden mt-2 p-2 bg-green-50 text-green-800 text-sm rounded">Correct Answer: brush</div>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-lg shadow border border-[#88B5C7]">
+                        <p class="font-semibold text-gray-800">3. Fill in with the correct frequency word (100%): I _____ eat lunch at school.</p>
+                        <input type="text" placeholder="Type your answer here..." class="mt-2 w-full p-2 border rounded border-gray-300 text-sm focus:outline-none focus:border-[#1269A8]">
+                        <button onclick="toggleSolution('p3')" class="mt-2 text-xs bg-[#54887D] text-white px-3 py-1 rounded hover:bg-teal-700 transition">Check Answer</button>
+                        <div id="p3" class="hidden mt-2 p-2 bg-green-50 text-green-800 text-sm rounded">Correct Answer: always</div>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-lg shadow border border-[#88B5C7]">
+                        <p class="font-semibold text-gray-800">4. Complete the question: What _____ you do after school?</p>
+                        <input type="text" placeholder="Type your answer here..." class="mt-2 w-full p-2 border rounded border-gray-300 text-sm focus:outline-none focus:border-[#1269A8]">
+                        <button onclick="toggleSolution('p4')" class="mt-2 text-xs bg-[#54887D] text-white px-3 py-1 rounded hover:bg-teal-700 transition">Check Answer</button>
+                        <div id="p4" class="hidden mt-2 p-2 bg-green-50 text-green-800 text-sm rounded">Correct Answer: do</div>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-lg shadow border border-[#88B5C7]">
+                        <p class="font-semibold text-gray-800">5. Select the right word: I (always / never) sleep at 2:00 PM during school days.</p>
+                        <input type="text" placeholder="Type your answer here..." class="mt-2 w-full p-2 border rounded border-gray-300 text-sm focus:outline-none focus:border-[#1269A8]">
+                        <button onclick="toggleSolution('p5')" class="mt-2 text-xs bg-[#54887D] text-white px-3 py-1 rounded hover:bg-teal-700 transition">Check Answer</button>
+                        <div id="p5" class="hidden mt-2 p-2 bg-green-50 text-green-800 text-sm rounded">Correct Answer: never</div>
+                    </div>
+                </div>
+
+                <!-- INTERMEDIATE EXERCISES -->
+                <div class="space-y-4 pt-4">
+                    <h3 class="text-xl font-bold text-[#54887D]">Intermediate Practice</h3>
+                    
+                    <div class="bg-white p-4 rounded-lg shadow border border-[#88B5C7]">
+                        <p class="font-semibold text-gray-800">6. Unscramble: does / after / What / do / he / school</p>
+                        <input type="text" placeholder="Type your answer here..." class="mt-2 w-full p-2 border rounded border-gray-300 text-sm focus:outline-none focus:border-[#1269A8]">
+                        <button onclick="toggleSolution('p6')" class="mt-2 text-xs bg-[#54887D] text-white px-3 py-1 rounded hover:bg-teal-700 transition">Check Answer</button>
+                        <div id="p6" class="hidden mt-2 p-2 bg-green-50 text-green-800 text-sm rounded">Correct Answer: What does he do after school?</div>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-lg shadow border border-[#88B5C7]">
+                        <p class="font-semibold text-gray-800">7. Write the correct third-person form: She (make) _____ her bed before school.</p>
+                        <input type="text" placeholder="Type your answer here..." class="mt-2 w-full p-2 border rounded border-gray-300 text-sm focus:outline-none focus:border-[#1269A8]">
+                        <button onclick="toggleSolution('p7')" class="mt-2 text-xs bg-[#54887D] text-white px-3 py-1 rounded hover:bg-teal-700 transition">Check Answer</button>
+                        <div id="p7" class="hidden mt-2 p-2 bg-green-50 text-green-800 text-sm rounded">Correct Answer: makes</div>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-lg shadow border border-[#88B5C7]">
+                        <p class="font-semibold text-gray-800">8. Fill in frequency adverb (50%): He _____ plays soccer after classes.</p>
+                        <input type="text" placeholder="Type your answer here..." class="mt-2 w-full p-2 border rounded border-gray-300 text-sm focus:outline-none focus:border-[#1269A8]">
+                        <button onclick="toggleSolution('p8')" class="mt-2 text-xs bg-[#54887D] text-white px-3 py-1 rounded hover:bg-teal-700 transition">Check Answer</button>
+                        <div id="p8" class="hidden mt-2 p-2 bg-green-50 text-green-800 text-sm rounded">Correct Answer: sometimes</div>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-lg shadow border border-[#88B5C7]">
+                        <p class="font-semibold text-gray-800">9. Unscramble answer: mother / helps / He / his</p>
+                        <input type="text" placeholder="Type your answer here..." class="mt-2 w-full p-2 border rounded border-gray-300 text-sm focus:outline-none focus:border-[#1269A8]">
+                        <button onclick="toggleSolution('p9')" class="mt-2 text-xs bg-[#54887D] text-white px-3 py-1 rounded hover:bg-teal-700 transition">Check Answer</button>
+                        <div id="p9" class="hidden mt-2 p-2 bg-green-50 text-green-800 text-sm rounded">Correct Answer: He helps his mother.</div>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-lg shadow border border-[#88B5C7]">
+                        <p class="font-semibold text-gray-800">10. Complete with preposition: What do you do _____ breakfast? (morning meal time frame)</p>
+                        <input type="text" placeholder="Type your answer here..." class="mt-2 w-full p-2 border rounded border-gray-300 text-sm focus:outline-none focus:border-[#1269A8]">
+                        <button onclick="toggleSolution('p10')" class="mt-2 text-xs bg-[#54887D] text-white px-3 py-1 rounded hover:bg-teal-700 transition">Check Answer</button>
+                        <div id="p10" class="hidden mt-2 p-2 bg-green-50 text-green-800 text-sm rounded">Correct Answer: before / after</div>
+                    </div>
+                </div>
+
+                <!-- ADVANCED EXERCISES -->
+                <div class="space-y-4 pt-4">
+                    <h3 class="text-xl font-bold text-[#54887D]">Advanced Practice</h3>
+                    
+                    <div class="bg-white p-4 rounded-lg shadow border border-[#88B5C7]">
+                        <p class="font-semibold text-gray-800">11. Construct sentence combining frequency & time: (I / usually / take a shower / before school)</p>
+                        <input type="text" placeholder="Type your answer here..." class="mt-2 w-full p-2 border rounded border-gray-300 text-sm focus:outline-none focus:border-[#1269A8]">
+                        <button onclick="toggleSolution('p11')" class="mt-2 text-xs bg-[#54887D] text-white px-3 py-1 rounded hover:bg-teal-700 transition">Check Answer</button>
+                        <div id="p11" class="hidden mt-2 p-2 bg-green-50 text-green-800 text-sm rounded">Correct Answer: I usually take a shower before school.</div>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-lg shadow border border-[#88B5C7]">
+                        <p class="font-semibold text-gray-800">12. Transform to third-person statement: "I always eat breakfast at 7:00." -> (She)</p>
+                        <input type="text" placeholder="Type your answer here..." class="mt-2 w-full p-2 border rounded border-gray-300 text-sm focus:outline-none focus:border-[#1269A8]">
+                        <button onclick="toggleSolution('p12')" class="mt-2 text-xs bg-[#54887D] text-white px-3 py-1 rounded hover:bg-teal-700 transition">Check Answer</button>
+                        <div id="p12" class="hidden mt-2 p-2 bg-green-50 text-green-800 text-sm rounded">Correct Answer: She always eats breakfast at 7:00.</div>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-lg shadow border border-[#88B5C7]">
+                        <p class="font-semibold text-gray-800">13. Unscramble full inquiry: breakfast / What / do / after / she / does</p>
+                        <input type="text" placeholder="Type your answer here..." class="mt-2 w-full p-2 border rounded border-gray-300 text-sm focus:outline-none focus:border-[#1269A8]">
+                        <button onclick="toggleSolution('p13')" class="mt-2 text-xs bg-[#54887D] text-white px-3 py-1 rounded hover:bg-teal-700 transition">Check Answer</button>
+                        <div id="p13" class="hidden mt-2 p-2 bg-green-50 text-green-800 text-sm rounded">Correct Answer: What does she do after breakfast?</div>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-lg shadow border border-[#88B5C7]">
+                        <p class="font-semibold text-gray-800">14. Write a 2-part sentence about your partner using frequency and 'after school': (He / never / come home late)</p>
+                        <input type="text" placeholder="Type your answer here..." class="mt-2 w-full p-2 border rounded border-gray-300 text-sm focus:outline-none focus:border-[#1269A8]">
+                        <button onclick="toggleSolution('p14')" class="mt-2 text-xs bg-[#54887D] text-white px-3 py-1 rounded hover:bg-teal-700 transition">Check Answer</button>
+                        <div id="p14" class="hidden mt-2 p-2 bg-green-50 text-green-800 text-sm rounded">Correct Answer: He never comes home late after school.</div>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-lg shadow border border-[#88B5C7]">
+                        <p class="font-semibold text-gray-800">15. Complete the missing structure for frequency placement: Subject + [Adverb] + [_____] + Time.</p>
+                        <input type="text" placeholder="Type your answer here..." class="mt-2 w-full p-2 border rounded border-gray-300 text-sm focus:outline-none focus:border-[#1269A8]">
+                        <button onclick="toggleSolution('p15')" class="mt-2 text-xs bg-[#54887D] text-white px-3 py-1 rounded hover:bg-teal-700 transition">Check Answer</button>
+                        <div id="p15" class="hidden mt-2 p-2 bg-green-50 text-green-800 text-sm rounded">Correct Answer: verb / action</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB 4: CRITICAL REFLECTION -->
+            <section id="tab-reflection" class="tab-content hidden space-y-6">
+                <div class="bg-white p-6 rounded-xl border-l-8 border-[#F7D615] shadow-md">
+                    <h2 class="text-2xl font-bold text-[#1269A8] mb-4">Critical Thinking & Logical Reflection</h2>
+                    <p class="text-gray-700 mb-6">Discuss these questions with your classmates or teacher to deepen your understanding of time management and grammar structures:</p>
+                    
+                    <div class="space-y-4">
+                        <div class="p-4 bg-[#F2F5E9] rounded-lg border border-[#88B5C7]">
+                            <h3 class="font-bold text-[#54887D] mb-1">Question 1: Order matters</h3>
+                            <p class="text-sm text-gray-700">Why is it important to use <strong>before</strong> and <strong>after</strong> correctly when describing your morning routine to someone else?</p>
+                        </div>
+                        
+                        <div class="p-4 bg-[#F2F5E9] rounded-lg border border-[#88B5C7]">
+                            <h3 class="font-bold text-[#54887D] mb-1">Question 2: Frequency in daily habits</h3>
+                            <p class="text-sm text-gray-700">How do adverbs like <em>always</em> and <em>never</em> help us explain our personal habits better than just saying "I do it"?</p>
+                        </div>
+
+                        <div class="p-4 bg-[#F2F5E9] rounded-lg border border-[#88B5C7]">
+                            <h3 class="p-bold text-[#54887D] mb-1">Question 3: Subject-Verb Agreement</h3>
+                            <p class="text-sm text-gray-700">When talking about your friend (he or she), why does the verb change (e.g., brush becomes brushes)? Can you explain the rule?</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB 5: FORMATIVE QUIZ -->
+            <section id="tab-evaluation" class="tab-content hidden space-y-6">
+                <div class="bg-white p-6 rounded-xl shadow-md border-t-4 border-[#1269A8]">
+                    <h2 class="text-2xl font-bold text-[#1269A8] mb-4">Formative Quiz: Grammar Unit 1 Check</h2>
+                    <p class="text-gray-600 mb-6">Test your mastery of <em>before/after</em> and <em>adverbs of frequency</em>. Click reveal solution for each question.</p>
+                    
+                    <div class="space-y-6">
+                        <!-- Quiz Q1 -->
+                        <div class="p-4 bg-gray-50 rounded-lg border">
+                            <p class="font-semibold text-gray-800">1. Which sentence is correct for someone who eats cereal every single morning?</p>
+                            <div class="mt-2 space-y-1 text-sm text-gray-700">
+                                <label class="block"><input type="radio" name="q1" class="mr-2"> A) I never eat cereal.</label>
+                                <label class="block"><input type="radio" name="q1" class="mr-2"> B) I always eat cereal.</label>
+                                <label class="block"><input type="radio" name="q1" class="mr-2"> C) I sometimes eat cereal.</label>
+                            </div>
+                            <button onclick="toggleSolution('quiz1')" class="mt-3 text-xs bg-[#1269A8] text-white px-3 py-1 rounded">Reveal Correct Answer</button>
+                            <div id="quiz1" class="hidden mt-2 p-2 bg-blue-50 text-blue-900 text-sm rounded">
+                                <strong>Answer: B) I always eat cereal.</strong> (100% frequency corresponds to 'always').
+                            </div>
+                        </div>
+
+                        <!-- Quiz Q2 -->
+                        <div class="p-4 bg-gray-50 rounded-lg border">
+                            <p class="font-semibold text-gray-800">2. Select the right question structure for asking about a friend's afternoon routine:</p>
+                            <div class="mt-2 space-y-1 text-sm text-gray-700">
+                                <label class="block"><input type="radio" name="q2" class="mr-2"> A) What do you do after school?</label>
+                                <label class="block"><input type="radio" name="q2" class="mr-2"> B) What does he do after school?</label>
+                                <label class="block"><input type="radio" name="q2" class="mr-2"> C) What does she do before breakfast?</label>
+                            </div>
+                            <button onclick="toggleSolution('quiz2')" class="mt-3 text-xs bg-[#1269A8] text-white px-3 py-1 rounded">Reveal Correct Answer</button>
+                            <div id="quiz2" class="hidden mt-2 p-2 bg-blue-50 text-blue-900 text-sm rounded">
+                                <strong>Answer: B) What does he do after school?</strong> (Matches male third-person singular and afternoon timing).
+                            </div>
+                        </div>
+
+                        <!-- Quiz Q3 -->
+                        <div class="p-4 bg-gray-50 rounded-lg border">
+                            <p class="font-semibold text-gray-800">3. Where do adverbs of frequency (always, usually, sometimes, never) go in a sentence?</p>
+                            <div class="mt-2 space-y-1 text-sm text-gray-700">
+                                <label class="block"><input type="radio" name="q3" class="mr-2"> A) At the very end of the sentence.</label>
+                                <label class="block"><input type="radio" name="q3" class="mr-2"> B) Right before the main action verb.</label>
+                                <label class="block"><input type="radio" name="q3" class="mr-2"> C) Right before the subject.</label>
+                            </div>
+                            <button onclick="toggleSolution('quiz3')" class="mt-3 text-xs bg-[#1269A8] text-white px-3 py-1 rounded">Reveal Correct Answer</button>
+                            <div id="quiz3" class="hidden mt-2 p-2 bg-blue-50 text-blue-900 text-sm rounded">
+                                <strong>Answer: B) Right before the main action verb.</strong> (e.g., I <em>always</em> brush).
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- Footer -->
+        <footer class="bg-[#1269A8] text-white text-center py-3 text-xs sm:text-sm border-t-2 border-[#F7D615]">
+            Colegio Montano &copy; 2026 | Educational Technology & Instructional Design Dept.
+        </footer>
+    </div>
+
+    <!-- JavaScript Interactions -->
+    <script>
+        // Switch tabs dynamically
+        function switchTab(tabId) {
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(c => c.classList.add('hidden'));
+
+            const selected = document.getElementById('tab-' + tabId);
+            if (selected) {
+                selected.classList.remove('hidden');
+            }
+
+            // Update active tab button styles
+            const buttons = document.querySelectorAll('nav button');
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-[#1269A8]', 'bg-opacity-100');
+                btn.classList.add('bg-opacity-70');
+            });
+            event.target.classList.add('bg-[#1269A8]', 'bg-opacity-100');
+            event.target.classList.remove('bg-opacity-70');
+        }
+
+        // Toggle solution visibility
+        function toggleSolution(elementId) {
+            const el = document.getElementById(elementId);
+            if (el) {
+                if (el.classList.contains('hidden')) {
+                    el.classList.remove('hidden');
+                } else {
+                    el.classList.add('hidden');
+                }
+            }
+        }
+
+        // Fullscreen API implementation
+        function toggleFullScreen() {
+            const container = document.getElementById('pizarra-container');
+            if (!document.fullscreenElement) {
+                if (container.requestFullscreen) {
+                    container.requestFullscreen();
+                } else if (container.webkitRequestFullscreen) {
+                    container.webkitRequestFullscreen();
+                } else if (container.msRequestFullscreen) {
+                    container.msRequestFullscreen();
+                }
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                } else if (document.webkitExitFullscreen) {
+                    document.webkitExitFullscreen();
+                } else if (document.msExitFullscreen) {
+                    document.msExitFullscreen();
+                }
+            }
+        }
+    </script>
+</body>
+</html>
